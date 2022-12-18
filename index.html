@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      td {
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Şanslı sayılar</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <button onclick="rastgele()">Rastgele sayı üret</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <script>
+      function rastgele() {
+        const tbody = document.querySelector("tbody");
+        tbody.innerHTML = "";
+        const minDeger = 1;
+        const maxDeger = 90;
+        const uretilecekAdet = 6;
+        for (let i = 0; i < uretilecekAdet; i++) {
+          const rastgeleSayi = Math.random() * (maxDeger - minDeger);
+          const yuvarlanmisHali = Math.round(rastgeleSayi) + minDeger;
+          const satir = `<tr><td>${yuvarlanmisHali}</td></tr>`;
+          tbody.innerHTML += satir;
+        }
+      }
+      rastgele();
+    </script>
+  </body>
+</html>
